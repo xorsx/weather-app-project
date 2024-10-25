@@ -66,11 +66,12 @@ main {
 
 .weather-app-temperature-value {
   font-size: 88px;
-  font-weight: 900;
+  line-height: 88px;
+  font-weight: 700;
 }
 .weather-app-icon {
-  font-size: 44px;
-  margin-top: 16px;
+  width: 88px;
+  height: 88px;
 }
 
 .weather-app-temperature-unit {
