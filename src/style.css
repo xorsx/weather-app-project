@@ -15,6 +15,7 @@ a {
   padding: 30px;
   box-shadow: rgba(65, 50, 100, 0.08) 0px 30px 50px 0px;
   border-radius: 16px;
+  width: 90%;
 }
 header {
   border-bottom: 1px solid #f9f7fe;
@@ -35,7 +36,7 @@ header {
 }
 .search-form-button {
   background: #34495e;
-  padding: 15px 30px;
+  padding: 15px 20px;
   border: none;
   border-radius: 6px;
   color: white;
@@ -47,17 +48,19 @@ main {
 }
 .weather-app-data {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .weather-app-city {
   margin: 0;
-  font-size: 38px;
-  line-height: 48px;
+  font-size: 28px;
 }
 
 .weather-app-details {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 24px;
   color: rgba(39, 33, 66, 0.4);
   font-weight: 500;
@@ -69,6 +72,8 @@ main {
 
 .weather-app-temperature-container {
   display: flex;
+  align-items: flex-end;
+  margin-top: 10px;
 }
 
 .weather-app-temperature-value {
@@ -88,7 +93,7 @@ main {
 
 .weather-forecast {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-top: 30px;
 }
 .weather-forecast-date {
@@ -134,5 +139,20 @@ footer {
 
   .weather-app-temperature-value {
     font-size: 88px;
+  }
+}
+@media (max-width: 600px) {
+  .weather-app-data {
+    flex-direction: column; /* Stack on small screens only if needed */
+    align-items: center; /* Center for smaller screens */
+  }
+
+  .weather-app-temperature-container {
+    flex-direction: column; /* Stack temperature and unit on small screens */
+    align-items: center; /* Center for small screens */
+  }
+
+  .weather-forecast {
+    flex-direction: column; /* Stack forecast items vertically */
   }
 }
