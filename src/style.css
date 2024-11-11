@@ -31,7 +31,7 @@ header {
   width: 100%;
   padding: 15px 10px;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 12px;
   margin-bottom: 10px;
 }
 .search-form-button {
@@ -40,7 +40,7 @@ header {
   border: none;
   border-radius: 6px;
   color: white;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 main {
@@ -48,7 +48,6 @@ main {
 }
 .weather-app-data {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
@@ -56,11 +55,11 @@ main {
 
 .weather-app-city {
   margin: 0;
-  font-size: 28px;
+  font-size: 24px;
 }
 
 .weather-app-details {
-  font-size: 14px;
+  font-size: 1;
   line-height: 24px;
   color: rgba(39, 33, 66, 0.4);
   font-weight: 500;
@@ -72,13 +71,13 @@ main {
 
 .weather-app-temperature-container {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   margin-top: 10px;
 }
 
 .weather-app-temperature-value {
   font-size: 48px;
-  line-height: 88px;
+  line-height: 1;
   font-weight: 700;
 }
 .weather-app-icon {
@@ -87,14 +86,17 @@ main {
 }
 
 .weather-app-temperature-unit {
-  margin-top: 16px;
+  margin-top: 0;
   font-size: 18px;
+  line-height: 1;
 }
 
 .weather-forecast {
   display: flex;
   justify-content: space-between;
+  overflow-x: auto;
   margin-top: 30px;
+  gap: 1 rem;
 }
 .weather-forecast-date {
   text-align: center;
@@ -119,6 +121,17 @@ main {
 .weather-forecast-temperature {
   padding: 0 10px;
 }
+
+.weather-forecast-day {
+  flex: 0 0 auto; /* Prevents items from shrinking */
+  width: 120px; /* Adjust width as needed */
+
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 4px;
+  scroll-snap-align: start; /* Optional: Aligns items to start on scroll snap */
+}
 footer {
   border-top: 1px solid #f9f7fe;
   padding: 20px 0 0 0;
@@ -127,32 +140,29 @@ footer {
   color: rgba(0, 0, 0, 0.6);
 }
 
-@media (min-width: 600px) {
-  .weather-app-data {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .weather-app-temperature-container {
-    flex-direction: row;
-  }
-
-  .weather-app-temperature-value {
-    font-size: 88px;
-  }
-}
 @media (max-width: 600px) {
   .weather-app-data {
-    flex-direction: column; /* Stack on small screens only if needed */
-    align-items: center; /* Center for smaller screens */
+    display: flex;
+    flex-direction: row; /* Keep elements side-by-side */
+    justify-content: space-around;
+    align-items: center;
   }
 
   .weather-app-temperature-container {
-    flex-direction: column; /* Stack temperature and unit on small screens */
-    align-items: center; /* Center for small screens */
+    flex-direction: row; /* Horizontal layout for temperature and icon */
+    align-items: center; /* Center alignment */
   }
 
   .weather-forecast {
-    flex-direction: column; /* Stack forecast items vertically */
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    flex-direction: row; /* Maintain horizontal layout */
+    justify-content: space-between;
+    gap: 10px; /* Small spacing between forecast items */
+  }
+
+  .weather-forecast-day {
+    min-width: 70px; /* Width to fit individual forecast items */
+    text-align: center; /* Center items within each day */
   }
 }
